@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LegalEntityContactRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class LegalEntityContact
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ExternalIndividualContact::class, mappedBy="LegalEntityContact")
+     */
+    private $externalIndividualContacts;
+
+    public function __construct()
+    {
+        $this->externalIndividualContacts = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,33 @@ class LegalEntityContact
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ExternalIndividualContact>
+     */
+    public function getExternalIndividualContacts(): Collection
+    {
+        return $this->externalIndividualContacts;
+    }
+
+    public function addExternalIndividualContact(ExternalIndividualContact $externalIndividualContact): self
+    {
+        if (!$this->externalIndividualContacts->contains($externalIndividualContact)) {
+            $this->externalIndividualContacts[] = $externalIndividualContact;
+            $externalIndividualContact->addLegalEntityContact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExternalIndividualContact(ExternalIndividualContact $externalIndividualContact): self
+    {
+        if ($this->externalIndividualContacts->removeElement($externalIndividualContact)) {
+            $externalIndividualContact->removeLegalEntityContact($this);
+        }
 
         return $this;
     }
