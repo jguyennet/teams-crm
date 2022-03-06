@@ -35,7 +35,7 @@ class RegistrationFormType extends AbstractType
                 'multiple'=>true
             ])
             ->add('personal_email', EmailType::class, [
-                'label' => 'Email',
+                'label' => 'Email personnel',
             ])
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
