@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\LegalEntityContactRepository;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -57,6 +58,7 @@ class LegalEntityContact
     public function __construct()
     {
         $this->externalIndividualContacts = new ArrayCollection();
+        $this->created_at = new \DateTime();
     }
 
     public function getId(): ?int

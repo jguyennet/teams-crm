@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use App\Entity\LegalEntityContact;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
@@ -12,14 +13,14 @@ class LegalEntityContactCrudController extends AbstractCrudController
         return LegalEntityContact::class;
     }
 
-    /*
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
-    }
-    */
+    
+    // public function configureFields(string $pageName): iterable
+    // {
+    //     return [
+    //         // DateTimeField::new('createdAt')->hideWhenCreating(),
+    //         // TextField::new('title'),
+    //         // TextEditorField::new('description'),
+    //     ];
+    // }
+    
 }
