@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\SearchExternalIndividualContactType;
 use App\Repository\ExternalIndividualContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,13 @@ class ExternalIndividualContactController extends Controller
     public function index(ExternalIndividualContactRepository $repoExternalIndividualContact): Response
     {
         $externalIndividualContacts = $repoExternalIndividualContact->findAll();
-        // dd($externalIndividualContacts);
+        
+        $form = $this->createForm(SearchExternalIndividualContactType::class, null);
+
         return $this->render('external_individual_contact/index.html.twig', [
             'controller_name' => 'ExternalIndividualContactController',
             'externalIndividualContacts' => $externalIndividualContacts,
+            'search' => $form->createView()
         ]);
     }
 }

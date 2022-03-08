@@ -19,6 +19,25 @@
 				</div>
 			</div>
 			<div class="row">
+<div class="col-lg-3 order-lg-first mt-4 pt-2 mt-lg-0 pt-lg-0">
+            	<div class="sidebar">
+                    {{ form_start(search) }}
+                	<div class="widget">
+                        <h5 class="widget_title">Categories</h5>
+						{{ form_row(search.first_name) }}
+                    </div>
+                    <div class="widget">
+                    	<h5 class="widget_title">Price</h5>
+						{{ form_row(search.last_name) }}
+                    </div>
+                    <div class="widget">
+                    	<h5 class="widget_title">Tags</h5>
+
+                    </div>
+                    <button class="btn btn-border-fill btn-block"> Search</button>
+                    {{ form_end(search) }}
+                </div>
+          </div>				
 				<div class="col-12">
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="arrival" role="tabpanel" aria-labelledby="arrival-tab">
