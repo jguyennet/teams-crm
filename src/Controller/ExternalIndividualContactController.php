@@ -15,10 +15,10 @@ class ExternalIndividualContactController extends Controller
     public function index(ExternalIndividualContactRepository $repoExternalIndividualContact): Response
     {
         $externalIndividualContacts = $repoExternalIndividualContact->findAll();
-        
+        // dd($externalIndividualContacts);
         return $this->render('external_individual_contact/index.html.twig', [
             'controller_name' => 'ExternalIndividualContactController',
-            'externalIndividualContacts' => $externalIndividualContacts
+            'externalIndividualContacts' => $externalIndividualContacts,
         ]);
     }
 }
