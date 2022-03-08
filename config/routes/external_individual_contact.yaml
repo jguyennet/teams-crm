@@ -1,0 +1,11 @@
+external-individual-contact:
+  path: /external-individual-contact
+  controller: App\Controller\ExternalIndividualContactController::index
+
+
+
+
+
+
+
+  
