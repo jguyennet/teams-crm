@@ -18,24 +18,44 @@ class Event
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text")
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $datetime_start;
+    private $start;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $datetime_end;
+    private $end;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private $title;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $all_day;
+
+    /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $background_color;
+
+    /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $border_color;
+
+    /**
+     * @ORM\Column(type="string", length=7)
+     */
+    private $text_color;
 
     public function getId(): ?int
     {
@@ -54,26 +74,26 @@ class Event
         return $this;
     }
 
-    public function getDatetimeStart(): ?\DateTimeInterface
+    public function getStart(): ?\DateTimeInterface
     {
-        return $this->datetime_start;
+        return $this->start;
     }
 
-    public function setDatetimeStart(\DateTimeInterface $datetime_start): self
+    public function setStart(\DateTimeInterface $start): self
     {
-        $this->datetime_start = $datetime_start;
+        $this->start = $start;
 
         return $this;
     }
 
-    public function getDatetimeEnd(): ?\DateTimeInterface
+    public function getEnd(): ?\DateTimeInterface
     {
-        return $this->datetime_end;
+        return $this->end;
     }
 
-    public function setDatetimeEnd(\DateTimeInterface $datetime_end): self
+    public function setEnd(\DateTimeInterface $end): self
     {
-        $this->datetime_end = $datetime_end;
+        $this->end = $end;
 
         return $this;
     }
@@ -86,6 +106,54 @@ class Event
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getAllDay(): ?bool
+    {
+        return $this->all_day;
+    }
+
+    public function setAllDay(bool $all_day): self
+    {
+        $this->all_day = $all_day;
+
+        return $this;
+    }
+
+    public function getBackgroundColor(): ?string
+    {
+        return $this->background_color;
+    }
+
+    public function setBackgroundColor(string $background_color): self
+    {
+        $this->background_color = $background_color;
+
+        return $this;
+    }
+
+    public function getBorderColor(): ?string
+    {
+        return $this->border_color;
+    }
+
+    public function setBorderColor(string $border_color): self
+    {
+        $this->border_color = $border_color;
+
+        return $this;
+    }
+
+    public function getTextColor(): ?string
+    {
+        return $this->text_color;
+    }
+
+    public function setTextColor(string $text_color): self
+    {
+        $this->text_color = $text_color;
 
         return $this;
     }
