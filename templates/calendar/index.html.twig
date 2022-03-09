@@ -28,7 +28,14 @@
                 start: 'prev,next today',
                 center: 'title',
                 end: 'dayGridMonth,timeGridWeek'
-            }
+            },
+            events: {{ data|raw }},
+            editable: true,
+            eventResizableFromStart: true,
+        })
+
+        calendar.on('eventChange', (e) => {
+            console.log(e)
         })
 
         calendar.render()
