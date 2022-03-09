@@ -21,7 +21,7 @@
         let calendarElt = document.querySelector("#calendrier")
 
         let calendar = new FullCalendar.Calendar(calendarElt, {
-            initialView: 'dayGridMonth',
+            initialView: 'timeGridWeek',
             locale: 'fr',
             timeZone: 'Europe/paris',
             headerToolbar: {
@@ -34,4 +34,5 @@
         calendar.render()
     }
 </script>
+
 {% endblock %}
