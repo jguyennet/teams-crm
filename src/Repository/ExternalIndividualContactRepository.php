@@ -45,15 +45,26 @@ class ExternalIndividualContactRepository extends ServiceEntityRepository
         }
     }
 
-    // /**
-    //  * @return ExternalIndividualContact[] Returns an array of ExternalIndividualContact objects
-    //  */
+    /**
+     * @return ExternalIndividualContact[] Returns an array of ExternalIndividualContact objects
+     */
     
-    public function findByExampleField($value)
+    public function findWithSearch($search)
     {
         $query = $this->createQueryBuilder('e');
 
-        dd($query->getQuery());
+        if ($search->getFirstName()) {
+            $query = $query->andWhere('e.first_name like :val')
+                            ->setParameter('val', "%{$search->getFirstName()}%");
+        }
+
+        if ($search->getLastName()) {
+            $query = $query->andWhere('e.last_name like :val')
+                            ->setParameter('val', "%{$search->getLastName()}%");
+        }
+
+        // dd($query->getQuery()->getResult());
+        return $query->getQuery()->getResult();
     }
     
 
@@ -70,6 +81,13 @@ class ExternalIndividualContactRepository extends ServiceEntityRepository
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('e')
+    // /**
+    //  * @return ExternalIndividualContact[] Returns an array of ExternalIndividualContact objects
+    //  */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('e')
             ->andWhere('e.exampleField = :val')
             ->setParameter('val', $value)
             ->orderBy('e.id', 'ASC')
@@ -79,6 +97,7 @@ class ExternalIndividualContactRepository extends ServiceEntityRepository
         ;
     }
     */
+   
 
     /*
     public function findOneBySomeField($value): ?ExternalIndividualContact

@@ -14,9 +14,11 @@ class SearchExternalIndividualContactType extends AbstractType
         $builder
             ->add('first_name', TextType::class, [
                 'label' => 'Prénom',
+                'required' => false,
             ])
             ->add('last_name', TextType::class, [
                 'label' => 'Nom',
+                'required' => false,
             ])
         ;
     }
