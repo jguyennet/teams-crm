@@ -48,6 +48,24 @@ class ExternalIndividualContactRepository extends ServiceEntityRepository
     // /**
     //  * @return ExternalIndividualContact[] Returns an array of ExternalIndividualContact objects
     //  */
+    
+    public function findByExampleField($value)
+    {
+        $query = $this->createQueryBuilder('e');
+
+        dd($query->getQuery());
+    }
+    
+
+
+
+
+
+
+
+    // /**
+    //  * @return ExternalIndividualContact[] Returns an array of ExternalIndividualContact objects
+    //  */
     /*
     public function findByExampleField($value)
     {
