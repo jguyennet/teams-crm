@@ -23,13 +23,15 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('CRM');
+            ->setTitle('Espace ADMINISTRATEUR');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('LegalEntityContact', 'fas fa-list', LegalEntityContact::class);
-        yield MenuItem::linkToCrud('ExternalIndividualContacts', 'fas fa-list', ExternalIndividualContact::class);
+        // yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToUrl('Espace utilisateur', 'fa fa-home', 'http://crm/account');
+        yield MenuItem::linkToCrud('Contacts externes personnes morales', 'fas fa-list', LegalEntityContact::class);
+        yield MenuItem::linkToCrud('Contacts externes personnes physiques', 'fas fa-list', ExternalIndividualContact::class);
+        yield MenuItem::linkToUrl('Enregistrer un utilisateur', 'fas fa-list', 'http://crm/register');
     }
 }

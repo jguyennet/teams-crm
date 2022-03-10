@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * @Route("/event")
  */
-class EventController extends AbstractController
+class EventController extends Controller
 {
     /**
      * @Route("/", name="app_event_index", methods={"GET"})

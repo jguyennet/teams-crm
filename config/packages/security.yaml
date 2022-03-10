@@ -36,7 +36,12 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/register, roles: ROLE_ADMIN }
         - { path: ^/account, roles: ROLE_USER }
+        - { path: ^/calendar, roles: ROLE_USER }
+        - { path: ^/external-individual-contact, roles: ROLE_USER }
+        - { path: ^/event, roles: ROLE_USER }
+        - { path: ^/dashboard, roles: ROLE_USER }
 
     # Role hierarchy
     role_hierarchy:
